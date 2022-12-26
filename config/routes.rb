@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount Filepond::Rails::Engine, at: '/filepond'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'home', to: 'home#update_avatar', as: :update_avatar
+  delete 'home', to: 'home#destroy_avatar', as: :destroy_avatar
+
+  root to: 'home#index'
 end
